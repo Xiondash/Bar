@@ -2,28 +2,61 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reserva - Bar de Música</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2>Formulario de Datos - Cabrón</h2>
 
-  <form id="dataForm" action="https://script.google.com/macros/s/AKfycbz3jOCEvUKVz4pmj4Cs2jYxG2FEDiT8r7bOBHDSuySNJ-spZ54klgILxj-dYKc7-jQcXA/exec" method="POST" target="hidden_iframe" onsubmit="enviarMensaje()">
-    <label>Nombre: <input type="text" name="nombre" required></label><br>
-    <label>Correo: <input type="email" name="correo" required></label><br>
-    <label>Teléfono: <input type="text" name="telefono" required></label><br>
-    <label>Fecha de nacimiento: <input type="date" name="fecha"></label><br>
-    <label>Comentarios: <textarea name="comentarios"></textarea></label><br>
-    <button type="submit">Enviar</button>
-  </form>
+  <div class="contenedor">
+    
+    <!-- Imagen como encabezado o logo -->
+    <div class="titulo-con-imagen">
+      <img src="imagenes/IMG_4717.PNG" alt="Logo del bar">
+    </div>
+
+    <!-- Formulario -->
+    <div class="form-container">
+      <h2>Formulario de Datos - Cabrón</h2>
+
+      <form id="dataForm"
+            action="https://script.google.com/macros/s/AKfycbz3jOCEvUKVz4pmj4Cs2jYxG2FEDiT8r7bOBHDSuySNJ-spZ54klgILxj-dYKc7-jQcXA/exec"
+            method="POST"
+            target="hidden_iframe"
+            onsubmit="enviarMensaje()">
+        
+        <label>Nombre:
+          <input type="text" name="nombre" required>
+        </label>
+
+        <label>Correo:
+          <input type="email" name="correo" required>
+        </label>
+
+        <label>Teléfono:
+          <input type="text" name="telefono" required>
+        </label>
+
+        <label>Fecha de nacimiento:
+          <input type="date" name="fecha">
+        </label>
+
+        <label>Comentarios:
+          <textarea name="comentarios"></textarea>
+        </label>
+
+        <button type="submit">Enviar</button>
+      </form>
+
+      <p id="respuesta"></p>
+    </div>
+  </div>
 
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-  <p id="respuesta"></p>
-
   <script>
     function enviarMensaje() {
-      document.getElementById("respuesta").textContent = "Datos enviada correctamente!";
+      document.getElementById("respuesta").textContent = "¡Datos enviados correctamente!";
       document.getElementById("dataForm").reset();
     }
   </script>
