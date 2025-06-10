@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #000; /* Fondo base oscuro para evitar que la imagen ocupe todo */
+  background-color: #000; /* Fondo negro puro */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -20,14 +20,15 @@ body {
 /* Logo del bar */
 .bar-logo {
   display: block;
-  margin-bottom: 25px;
-  width: 150px;
+  width: 100%;
+  max-width: 150px;
   height: auto;
+  margin-bottom: 25px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
-/* Contenedor general con imagen de fondo solo en esa sección */
+/* Contenedor del formulario con imagen de fondo */
 .form-wrapper {
   background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
               url('imagenes/IMG_1772.PNG') no-repeat center top;
@@ -47,6 +48,7 @@ body {
   margin-bottom: 25px;
   font-weight: 700;
   font-size: 26px;
+  word-wrap: break-word;
 }
 
 /* Etiquetas e inputs */
@@ -90,9 +92,38 @@ button:hover {
   background-color: #cc0000;
 }
 
+/* Mensaje de respuesta */
 #respuesta {
   margin-top: 15px;
   text-align: center;
   font-size: 14px;
   color: #00ff88;
+}
+
+/* Media Query para móviles */
+@media (max-width: 600px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .form-wrapper {
+    padding: 25px 20px;
+  }
+
+  .bar-logo {
+    max-width: 120px;
+    margin-bottom: 15px;
+  }
+
+  .form-wrapper h2 {
+    font-size: 20px;
+  }
+
+  input, textarea {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 15px;
+  }
 }
