@@ -7,14 +7,17 @@
 </head>
 <body>
   <h2>Formulario de Datos - Cabrón</h2>
-  <form id="dataForm">
-    <input type="text" name="nombre" placeholder="Nombre completo" required>
-    <input type="email" name="correo" placeholder="Correo electrónico" required>
-    <input type="tel" name="telefono" placeholder="Teléfono (WhatsApp)">
-    <input type="date" name="fecha" required>
-    <textarea name="comentarios" placeholder="Comentarios o preferencias"></textarea>
-    <button type="submit">Enviar Datos</button>
-  </form>
+  <form id="dataForm" action="https://script.google.com/macros/s/AKfycbw2jiIsgxN6VhWctNInTfRp-tc52_I6_tZno3BqFhghwFJeod4UDegHwhZg76C_NdJF6Q/exec" method="POST">
+  <label>Nombre: <input type="text" name="nombre" required></label><br>
+  <label>Correo: <input type="email" name="correo" required></label><br>
+  <label>Teléfono: <input type="text" name="telefono" required></label><br>
+  <label>Fecha de nacimiento: <input type="date" name="fecha"></label><br>
+  <label>Comentarios: <textarea name="comentarios"></textarea></label><br>
+  <button type="submit">Enviar</button>
+</form>
+
+<p id="respuesta"></p>
+
 
   <p id="respuesta"></p>
 
