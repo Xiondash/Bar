@@ -9,7 +9,7 @@ form.addEventListener('submit', (e) => {
 
   const url = 'https://script.google.com/macros/s/AKfycbw2jiIsgxN6VhWctNInTfRp-tc52_I6_tZno3BqFhghwFJeod4UDegHwhZg76C_NdJF6Q/exec';
 
-  // Crea un formulario oculto que se envía como HTML (evita CORS)
+
   const tempForm = document.createElement('form');
   tempForm.action = url;
   tempForm.method = 'POST';
