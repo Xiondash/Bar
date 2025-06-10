@@ -17,10 +17,35 @@
 </form>
 
 <p id="respuesta"></p>
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const enviado = urlParams.get('enviado');
 
+    if (enviado === '1') {
+      const mensaje = document.createElement('div');
+      mensaje.textContent = '✅ ¡Datos enviados correctamente!';
+      mensaje.style.background = '#d4edda';
+      mensaje.style.color = '#155724';
+      mensaje.style.padding = '10px';
+      mensaje.style.border = '1px solid #c3e6cb';
+      mensaje.style.borderRadius = '5px';
+      mensaje.style.marginBottom = '10px';
+      mensaje.style.fontWeight = 'bold';
 
-  <p id="respuesta"></p>
+      const form = document.querySelector('form');
+      form.parentNode.insertBefore(mensaje, form);
 
-  <script src="scripts.js"></script>
+      // Eliminar el mensaje después de 5 segundos
+      setTimeout(() => {
+        mensaje.remove();
+        // Limpiar la URL quitando el parámetro ?enviado=1
+        const newUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, newUrl);
+      }, 5000);
+    }
+  });
+</script>
+
 </body>
 </html>
