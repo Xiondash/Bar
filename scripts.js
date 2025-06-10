@@ -25,6 +25,6 @@ form.addEventListener('submit', (e) => {
   document.body.appendChild(tempForm);
   tempForm.submit();
 
-  respuesta.textContent = "¡Reserva enviada correctamente!";
+  respuesta.textContent = "Datos enviados correctamente!";
   form.reset();
 });
