@@ -8,12 +8,10 @@
 }
 
 body {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-              url('imagenes/IMG_1772.PNG') no-repeat center top;
-  background-size: cover;
+  background-color: #000; /* Fondo base oscuro para evitar que la imagen ocupe todo */
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Logo arriba, formulario abajo */
+  flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 30px 20px;
@@ -29,9 +27,11 @@ body {
   box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
-/* Contenedor del formulario */
+/* Contenedor general con imagen de fondo solo en esa sección */
 .form-wrapper {
-  background-color: rgba(0, 0, 0, 0.85);
+  background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+              url('imagenes/IMG_1772.PNG') no-repeat center top;
+  background-size: cover;
   padding: 40px;
   border-radius: 15px;
   max-width: 500px;
@@ -94,4 +94,5 @@ button:hover {
   margin-top: 15px;
   text-align: center;
   font-size: 14px;
-  color: #00ff88
+  color: #00ff88;
+}
