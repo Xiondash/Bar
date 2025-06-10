@@ -3,92 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>Reserva - Bar de Música</title>
-  <style>
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      padding: 40px;
-    }
-
-    h2 {
-      color: #ff0000;
-    }
-
-    input, textarea, button {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-
-    input, textarea {
-      background-color: #1a1a1a;
-      color: #fff;
-    }
-
-    button {
-      background-color: #b30000;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #ff0000;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <h2>Formulario de Datos - Cabrón</h2>
   <form id="reservaForm">
     <input type="text" name="nombre" placeholder="Nombre completo" required>
     <input type="email" name="correo" placeholder="Correo electrónico" required>
-    <input type="tel" name="telefono" placeholder="Teléfono(WhatsApp)">
+    <input type="tel" name="telefono" placeholder="Teléfono (WhatsApp)">
     <input type="date" name="fecha" required>
     <textarea name="comentarios" placeholder="Comentarios o preferencias"></textarea>
     <button type="submit">Enviar Datos</button>
   </form>
-  
 
   <p id="respuesta"></p>
 
-  <script>
-    const form = document.getElementById('reservaForm');
-    const respuesta = document.getElementById('respuesta');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const datos = {
-        nombre: form.nombre.value,
-        correo: form.correo.value,
-        telefono: form.telefono.value,
-        fecha: form.fecha.value,
-        comentarios: form.comentarios.value
-      };
-
-      try {
-        let url = 'https://script.google.com/macros/s/AKfycbw2jiIsgxN6VhWctNInTfRp-tc52_I6_tZno3BqFhghwFJeod4UDegHwhZg76C_NdJF6Q/exec';
-        const res = await fetch(url, {
-          method: 'POST',
-          body: JSON.stringify(datos),
-          headers: { 'Content-Type': 'application/json' }
-        });
-
-        if (res.ok) {
-          respuesta.textContent = "Datos enviados correctamente!";
-          form.reset();
-        } else {
-          respuesta.textContent = "Error al enviar los datos.";
-        }
-      } catch (error) {
-        console.error(error);
-        respuesta.textContent = "Error de conexión.";
-      }
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
