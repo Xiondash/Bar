@@ -8,7 +8,7 @@
 <body>
   <h2>Formulario de Datos - Cabrón</h2>
 
-  <form id="dataForm">
+  <form id="dataForm" action="https://script.google.com/macros/s/AKfycbzKt9GWrjP5iN14CrWWyyjQbd75H5H0yHS0vqdp7EZZnHmr0I4uVk3P75R9P4n1NAZf2w/exec" method="POST" target="hidden_iframe" onsubmit="enviarMensaje()">
     <label>Nombre: <input type="text" name="nombre" required></label><br>
     <label>Correo: <input type="email" name="correo" required></label><br>
     <label>Teléfono: <input type="text" name="telefono" required></label><br>
@@ -17,38 +17,15 @@
     <button type="submit">Enviar</button>
   </form>
 
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
   <p id="respuesta"></p>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const form = document.getElementById('dataForm');
-    const respuesta = document.getElementById('respuesta');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-
-      try {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbzKt9GWrjP5iN14CrWWyyjQbd75H5H0yHS0vqdp7EZZnHmr0I4uVk3P75R9P4n1NAZf2w/exec', {
-          method: 'POST',
-          body: formData
-        });
-
-        const result = await res.json();
-
-        if (result.status === 'ok') {
-          respuesta.textContent = "¡Reserva enviada correctamente!";
-          form.reset();
-        } else {
-          respuesta.textContent = "Error al enviar la reserva.";
-        }
-      } catch (err) {
-        console.error(err);
-        respuesta.textContent = "Error de conexión.";
-      }
-    });
-  });
+    function enviarMensaje() {
+      document.getElementById("respuesta").textContent = "Datos enviada correctamente!";
+      document.getElementById("dataForm").reset();
+    }
   </script>
 </body>
 </html>
