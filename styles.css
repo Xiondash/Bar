@@ -8,13 +8,12 @@
 }
 
 body {
-  background-image: url('imagenes/IMG_1772.PNG');
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+              url('imagenes/IMG_1772.PNG') no-repeat center top;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
-  flex-direction: column; /* Para poner el logo arriba y el formulario abajo */
+  flex-direction: column; /* Logo arriba, formulario abajo */
   align-items: center;
   justify-content: flex-start;
   padding: 30px 20px;
@@ -32,7 +31,7 @@ body {
 
 /* Contenedor del formulario */
 .form-wrapper {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.85);
   padding: 40px;
   border-radius: 15px;
   max-width: 500px;
@@ -95,5 +94,4 @@ button:hover {
   margin-top: 15px;
   text-align: center;
   font-size: 14px;
-  color: #00ff88;
-}
+  color: #00ff88
