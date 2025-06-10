@@ -1,4 +1,4 @@
-const form = document.getElementById('reservaForm');
+const form = document.getElementById('dataForm');
 const respuesta = document.getElementById('respuesta');
 
 form.addEventListener('submit', async (e) => {
