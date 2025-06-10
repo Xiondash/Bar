@@ -8,15 +8,26 @@
 }
 
 body {
-  background-image: url('imagenes/IMG_1772.PNG'); /* Ajusta si tu imagen está en otra ruta */
+  background-image: url('imagenes/IMG_1772.PNG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column; /* Para poner el logo arriba y el formulario abajo */
   align-items: center;
-  padding: 40px;
+  justify-content: flex-start;
+  padding: 30px 20px;
+}
+
+/* Logo del bar */
+.bar-logo {
+  display: block;
+  margin-bottom: 25px;
+  width: 150px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
 /* Contenedor del formulario */
@@ -28,16 +39,6 @@ body {
   width: 100%;
   box-shadow: 0 8px 30px rgba(255, 0, 0, 0.4);
   color: #fff;
-}
-
-/* Logo del bar */
-.bar-logo {
-  display: block;
-  margin: 0 auto 20px auto;
-  width: 80%;
-  max-width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
 }
 
 /* Título */
