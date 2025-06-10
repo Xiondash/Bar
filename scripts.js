@@ -12,6 +12,7 @@ form.addEventListener('submit', async (e) => {
       body: formData
     });
     console.log('res ='+ res);
+    
     if (res.ok) {
       respuesta.textContent = "¡Reserva enviada correctamente!";
       form.reset();
