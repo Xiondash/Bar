@@ -9,8 +9,6 @@
 <body>
 
   <div class="contenedor">
-    
-
     <div class="titulo-con-imagen">
       <img src="imagenes/IMG_4717.PNG" alt="Logo del bar" class="bar-logo">
     </div>
@@ -18,12 +16,7 @@
     <div class="form-wrapper">
       <h2>Formulario de Datos - Cabrón</h2>
 
-      <form id="dataForm"
-            action="https://script.google.com/macros/s/AKfycbz3jOCEvUKVz4pmj4Cs2jYxG2FEDiT8r7bOBHDSuySNJ-spZ54klgILxj-dYKc7-jQcXA/exec"
-            method="POST"
-            target="hidden_iframe"
-            onsubmit="enviarMensaje()">
-        
+      <form id="dataForm">
         <label>Nombre:
           <input type="text" name="nombre" required>
         </label>
@@ -43,13 +36,35 @@
     </div>
   </div>
 
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
-
   <script>
-    function enviarMensaje() {
-      document.getElementById("respuesta").textContent = "¡Datos enviados correctamente!";
-      document.getElementById("dataForm").reset();
-    }
+    document.getElementById("dataForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(this);
+      const data = {
+        nombre: formData.get("nombre"),
+        identificacion: formData.get("cedula"),
+        telefono: formData.get("telefono")
+      };
+
+      try {
+        const response = await fetch("guardar.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+          document.getElementById("respuesta").textContent = "¡Datos enviados correctamente!";
+          this.reset();
+        } else {
+          document.getElementById("respuesta").textContent = "Error al enviar los datos.";
+        }
+      } catch (error) {
+        console.error(error);
+        document.getElementById("respuesta").textContent = "Ocurrió un error de conexión.";
+      }
+    });
   </script>
 </body>
 </html>
